@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-
-class Main extends Component {
+export class Main extends Component {
     constructor() {
         super();
         this.state = {
@@ -11,14 +10,17 @@ class Main extends Component {
 
     render() {
         let greeting = this.props.hello;
-        console.log(greeting)
+        // console.log(greeting)
         return (
             <React.Fragment>
-                <h1>{greeting}</h1>
-                {
-                    
-                }
+                <h1 id="greeting-title">{greeting}</h1>
+                
+                <input placeholder="type greeting string" id="title-input"></input>
+                <button onClick={(event) => {
+                    document.getElementById("greeting-title").innerText = document.getElementById("title-input").value;
+                }}>Submit</button>
             </React.Fragment>
-        )
+        );
     }
 }
+
